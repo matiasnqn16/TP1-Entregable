@@ -42,12 +42,12 @@ function menuPrincipal(){
 /* funcion para listar pasajeros de un array asociativo */
 /* @param array $listasPas */
 /* @return void */
-function listarListaPasajeros($listasPas){
+/* function listarListaPasajeros($listasPas){
     foreach($listasPas as $val => $dat){
         echo "posicion: ".($val+1)." "." Nombre: ".$dat['Nombre']." ".$dat['Apellido']. 
         "    DNI: ".$dat['NroDocumento']."\n";
     }
-}
+} */
 /* Opciones para modificar la capacidad maxima */
 /* @param object $miViaje */
 /* @return void */
@@ -75,8 +75,9 @@ function opcionesCapMax($miViaje){
 /* @return void */
 function visualizarListaPasajeros($miViaje){
     do{
-        echo "-------- N°-- Pasajero ----- Nro Documento\n";
-        listarListaPasajeros($miViaje->getDatosPasajeros());
+        /* echo "-------- N°-- Pasajero ----- Nro Documento\n";
+        listarListaPasajeros($miViaje->getDatosPasajeros()); */
+        print_r($miViaje->listarPasajeros());
         echo "\n \n";
         echo "1 - salir\n";
         $opc = trim(fgets(STDIN));
@@ -90,8 +91,9 @@ function visualizarListaPasajeros($miViaje){
 /* @return void */
 function quitarUnPasajero($miViaje){
     do{
-        echo "-------- N°-- Pasajero ----- Nro Documento\n";
-        listarListaPasajeros($miViaje->getDatosPasajeros());
+        /* echo "-------- N°-- Pasajero ----- Nro Documento\n";
+        listarListaPasajeros($miViaje->getDatosPasajeros()); */
+        print_r($miViaje->listarPasajeros());
         echo "\n";
         echo "1 - quitar pasajero\n";
         echo "2 - salir al menu principal\n";

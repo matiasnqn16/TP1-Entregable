@@ -85,11 +85,20 @@ class Viaje{
         return false;
     }
 
+    public function listarPasajeros(){
+        $texto = "pos -  Nombre y Apellido   -   Dni \n";
+        foreach($this->getDatosPasajeros() as $val => $dat){
+            $texto .= "| ".($val+1)." "." -  ".$dat['Nombre']." ".$dat['Apellido']." - ".$dat['NroDocumento']."\n";
+        }
+        return $texto;
+    }
+
     public function __toString(){
         return "\nviaje n° ".$this->getCodigoViaje()."\n". 
         "Con destino a: ".$this->getDestino()."\n". 
         "Cant. Max. de pasajeros ".$this->getCantMaxPasajeros()."\n". 
-        "Cantidad de pasajeros: ".count($this->getDatosPasajeros())."\n\n";
+        "Cantidad de pasajeros: ".count($this->getDatosPasajeros())."\n\n". 
+        "Pasajeros:\n ".$this->listarPasajeros()."\n";
     }
 }
 ?>
