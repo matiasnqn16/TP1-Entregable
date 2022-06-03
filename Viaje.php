@@ -54,35 +54,38 @@ class Viaje{
     /* @param int $nuevaCantidad */
     /* @return boolean */
     public function cambiarMaxDePasajeros($nuevaCantidad){
+        $banderin = false;
         if($nuevaCantidad > count($this->getDatosPasajeros())-1){
             $this->setCantMaxPasajeros($nuevaCantidad);
-            return true;
+            $banderin = true;
         }else
-        return false;
+        return $banderin;
     }
     /* funcion que agrega pasajeros hasta que supere la capacidad maxima */
     /* @param array $arrayNuevosPasajeros */
     /* @return boolean */
     public function agregarPasajero($arrayNuevosPasajeros){
+        $banderin = false;
         if (count($this->getDatosPasajeros()) < $this->getCantMaxPasajeros()){
             $screenshotDatosPasajeros = $this->getDatosPasajeros();
             array_push($screenshotDatosPasajeros,$arrayNuevosPasajeros);
             $this->setDatosPasajeros($screenshotDatosPasajeros);
-            return true;
+            $banderin = true;
         }else
-        return false;
+        return $banderin;
     }
     /* funcion que quita pasajero segun su posicion dentro del array asociativo */
     /* @param int $posicionPasajero */
     /* @return boolean */
     public function quitarPasajero($posicionPasajero){
+        $banderin = false;
         if ($posicionPasajero < count($this->getDatosPasajeros())+1){
             $screenshotDatosPasajeros = $this->getDatosPasajeros();
             unset($screenshotDatosPasajeros[($posicionPasajero-1)]);
             $this->setDatosPasajeros(array_values($screenshotDatosPasajeros));
-            return true;
+            $banderin = true;
         }else
-        return false;
+        return $banderin;
     }
 
     public function listarPasajeros(){
